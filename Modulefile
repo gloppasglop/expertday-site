@@ -8,4 +8,7 @@ description 'Site module using Roles & Profiles for Expertday'
 project_page 'http://github.com/nvalentine-puppetlabs/puppet-site'
 
 ## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+dependency 'garethr/graphite', '>= 0.3.0'
+dependency 'pdxcat/collectd', '>= 1.1.0'
+dependency 'bfraser/gdash', '>= 0.1.0'
+
