@@ -8,13 +8,13 @@ class site::profile::graphite {
 
   gdash::category { "Expertday": }
 
-  gdash::dashboard { "OS Metrics":
+  gdash::dashboard { "OS_Metrics":
         description => "OS Metrics",
         category    => "Expertday",
         require     => Gdash::Category["Expertday"],
   }
 
-  gdash::dashboard { "Web Server Metrics":
+  gdash::dashboard { "Web_Server_Metrics":
         description => "Web Server Metrics",
         category    => "Expertday",
         require     => Gdash::Category["Expertday"],

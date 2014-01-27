@@ -13,27 +13,25 @@ class site::profile::gdash::client {
 
    $graphite_fqdn = inline_template( "<%= @fqdn.gsub('.','_')  %>" )
 
-   @@gdash::graph { "gdash_load_${graphite_fqdn}":
+   @@gdash::graph { "expertday_os_metric_load_${graphite_fqdn}":
         name        => "Load Average ${graphite_fqdn}",
         area        => "none",
         vtitle      => "Load",
         description => "Load Average",
-        dashboard   => "gdash",
-        category    => "gdash",
-        require     => Gdash::Dashboard["gdash"],
+        dashboard   => "OS_Metrics",
+        category    => "Expertday",
+        require     => Gdash::Dashboard["OS_Metrics"],
     }
 
    @@gdash::field { "${graphite_fqdn}_load_shortterm":
         name        => "short ${graphite_fqdn}",
         scale       => 1,
-        graph       => "gdash_load_${graphite_fqdn}",
+        graph       => "expertday_os_metric_load_${graphite_fqdn}",
         color       => "red",
         alias       => "Short Term (1 minute) ${hostname}",
-        #data        => "sumSeries(collectd.$graphite_fqdn.load.load.shortterm)",
         data        => "collectd.$graphite_fqdn.load.load.shortterm",
-        category    => "gdash",
-#        require     => Gdash::Graph["${graphite_fqdn}_gdash_load"],
-        dashboard   => "gdash",
+        category    => "Expertday",
+        dashboard   => "OS_Metrics",
     }
 
 
